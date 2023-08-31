@@ -10,17 +10,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 
-<script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
 
 <style>
     .font-inter{
@@ -28,24 +17,26 @@
     }
 </style>
 </head>
-<body class="mx-16 mt-14 bg-[#FFF]">
+<body class="mx-16 mt-14 bg-[#FFF] mb-32">
     <header>
-        <nav class="flex justify-between border-b border-gray-400 pb-8">
+        <nav class="flex justify-between border-b border-[#11111121] pb-8">
             <div>
                 <img src="./image/Logo.png" alt="">
             </div>
 
-            <div class="px-5 py-3 rounded-lg bg-gray-400">
+            <button class="px-5 py-3 rounded bg-[#19191933]">
                 <p class="text-[#252525] text-lg font-medium font-inter">Sort by view</p>
-            </div>
+            </button>
 
-            <div class="px-5 py-3 rounded-lg bg-[#FF1F3D]">
+            <button class="px-5 py-2 rounded bg-[#FF1F3D]">
                 <p class="font-inter font-medium text-[#FFF] text-lg">Blog</p>
-            </div>
+            </button>
         </nav>
     </header>
 
     <main>
+
+     
 
         
         <div id="category-name" class="flex justify-center gap-6 mt-8 mb-10">
@@ -53,9 +44,13 @@
         </div>
 
         <div id="card-container" class=" grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- ml-64 -mt-8 -->
+            <!-- <div class="card-compact w-96 pb-6 absolute">
 
-            <!-- <div class="card-compact w-96 pb-6">
-                <figure class=""><img class="rounded-lg" src="https://i.ibb.co/ZNggzdm/cake.jpg" alt="Shoes" /></figure>
+                <figure class=""><img class=" rounded-lg" src="https://i.ibb.co/ZNggzdm/cake.jpg" alt="Shoes" /></figure>
+
+                <div class="relative ml-64 -top-8 px-2 py-1 w-max rounded bg-[#171717] text-[#FFF] text-xs font-normal font-inter"> 3hrs 56 min ago</div>
+
                 <div class="">
                   <div class="flex gap-3 mt-5">
                         <img class="w-12 rounded-full" src="https://i.ibb.co/k4tkc42/oliviar-harris.jpg" alt="">
@@ -69,12 +64,13 @@
                   <p class="ml-14 mt-2">91K views</p>
                 </div>
               </div> -->
+            
 
         </div>
 
     </main>
 
-    <footer></footer>
+    <footer class=""></footer>
 
 
     <script src="js/index.js"></script>
