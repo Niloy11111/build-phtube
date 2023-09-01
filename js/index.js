@@ -19,40 +19,51 @@ const showAllCategory = async () => {
 
 };
 
+
 const displayCard = async (categoryId) => {
 
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
 
     const data = await response.json();
     
+    // console.log(data)
+    // console.log(data.data.length)
+
+    // console.log(data.status)
+
+    // if(data.data.length > 6){
+    //   const body = document.getElementById('body')
+    //   body.classList.add('mb-32')
+    // }
+
 
     const cardContainer = document.getElementById('card-container');
 
     cardContainer.textContent = '';
     data.data.forEach((item) => {
-  
+      
         const div = document.createElement('div');
 
-        const seconds = item.others.posted_date;
-        const totalSeconds = parseFloat(seconds);
         
+        const seconds = item.others.posted_date;
+        
+        const totalSeconds = parseFloat(seconds);
+       
         const totalMinutes = Math.floor(totalSeconds/60);
         const minutes = totalMinutes % 60 ;
         
         const totalHours = Math.floor(totalMinutes / 60);
 
-    
-
-    
+      
     div.innerHTML = `
     <div class="card-compact pb-6">
     <figure class=""><img class="rounded-lg w-full h-[250px]" src=${item.thumbnail} alt="Shoes" />
       </figure>
 
-      <div id="hours-minute" class="relative lg:ml-[300px] md:ml-64 ml-56 -top-10 px-2 py-1 w-max rounded bg-[#171717] text-[#FFF] text-xs font-normal font-inter hidden"> ${totalHours} hrs ${minutes} min ago</div>
+      <div id="hours-minute" class="relative lg:ml-[300px] md:ml-64 ml-56 -top-10 px-2 py-1 w-max rounded bg-[#171717] text-[#FFF] text-xs font-normal font-inter"> ${totalHours? totalHours : ''} ${totalHours? 'hrs' : ''} ${minutes? minutes : ''} ${minutes? 'min ago' : ''}</div>
     <div class="">
       <div class="flex gap-3 mt-5">
-            <img class="w-12 rounded-full" src='${item.authors[0].profile_picture}' alt="">
+            <img class="w-[48px] h-[45px] rounded-full" src='${item.authors[0].profile_picture}' alt="">
         <h3 class="text-[#171717] font-inter font-bold text-base mr-2">Building a Winning UX Strategy Using the Kano Model</h3>
       </div>
 
@@ -65,11 +76,58 @@ const displayCard = async (categoryId) => {
   </div>
 
     `;
-    cardContainer.appendChild(div); 
-    })
-   
+    cardContainer.appendChild(div);
     
+    });
+
+    if( data?.data?.length === 0 && data.message == 'no data found!!!' && data.status == false){
+      const noDataContainer = document.getElementById('no-data-container');
+      noDataContainer.innerHTML = "" ;
+      
+      const div = document.createElement('div');
+          div.innerHTML = `
+          <div class="">
+          <img class="mb-8 mx-auto" src="./image/Icon.png" alt="">
+          <h2 class="text-[#171717] text-3xl font-bold font-inter font-inter text-center">Oops!! Sorry, There is no <br> content here</h2>
+         </div>
+          ` ;
+          div.classList.add('h-[580px]', 'flex' ,'justify-center', 'items-center')
+          noDataContainer.appendChild(div);
+        }
+        else if(data?.data?.length > 0  || data?.status == true){
+          const noDataContainer = document.getElementById('no-data-container');
+          noDataContainer.textContent = "" ;
+        }   
 };
+
+const sortByView = async (sortId) => {
+  // const viewsArray = [] ;
+  // const views = item.others.views.slice(0,3) ;
+  // const viewsNumbers = parseFloat(views) * 1000 ;
+  const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`)
+
+    const data = await response.json();
+    const allViewsArray = [] ;
+    data.data.forEach((item) => {
+      const views = item.others.views.slice(0,3) ;
+      const viewsNumbers = parseFloat(views) * 1000 ;
+      
+      allViewsArray.push(viewsNumbers);
+
+      if(allViewsArray.length === 12){
+        const div = document.createElement('div');
+        
+        allViewsArray.sort((a,b) => b-a );
+        allViewsArray.forEach(item => {
+          
+        })
+      }
+
+      // const viewsList = allViewsArray.join(',')  
+      
+    })
+}
+
 
 displayCard('1000');
 showAllCategory();

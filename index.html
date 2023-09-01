@@ -17,14 +17,14 @@
     }
 </style>
 </head>
-<body class="mx-16 mt-14 bg-[#FFF] mb-32">
+<body id="body" class="mx-16 mt-14 bg-[#FFF] mb-32">
     <header>
         <nav class="flex justify-between border-b border-[#11111121] pb-8">
             <div>
                 <img src="./image/Logo.png" alt="">
             </div>
 
-            <button class="px-5 py-3 rounded bg-[#19191933]">
+            <button onclick="sortByView()" class="px-5 py-3 rounded bg-[#19191933]">
                 <p class="text-[#252525] text-lg font-medium font-inter">Sort by view</p>
             </button>
 
@@ -44,7 +44,6 @@
         </div>
 
         <div id="card-container" class=" grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <!-- ml-64 -mt-8 -->
             <!-- <div class="card-compact w-96 pb-6 absolute">
 
                 <figure class=""><img class=" rounded-lg" src="https://i.ibb.co/ZNggzdm/cake.jpg" alt="Shoes" /></figure>
@@ -64,9 +63,13 @@
                   <p class="ml-14 mt-2">91K views</p>
                 </div>
               </div> -->
-            
+        </div>
+        <!-- h-[580px] flex justify-center items-center -->
+
+        <div id="no-data-container" class="">
 
         </div>
+
 
     </main>
 
