@@ -19,30 +19,20 @@ const showAllCategory = async () => {
 
 };
 
-
 const displayCard = async (categoryId) => {
+  sortByView(categoryId)
 
     const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`)
 
     const data = await response.json();
     
-    // console.log(data)
-    // console.log(data.data.length)
-
-    // console.log(data.status)
-
-    // if(data.data.length > 6){
-    //   const body = document.getElementById('body')
-    //   body.classList.add('mb-32')
-    // }
-
-
     const cardContainer = document.getElementById('card-container');
 
     cardContainer.textContent = '';
     data.data.forEach((item) => {
       
         const div = document.createElement('div');
+        div.classList.add('card');
 
         
         const seconds = item.others.posted_date;
@@ -102,26 +92,26 @@ const displayCard = async (categoryId) => {
 
 const sortByView = async () => {
 
-    const allViewsArray = [] ;
-    data.data.forEach((item) => {
+  const cardContainer = document.getElementById('card-container');
+  const cards = cardContainer.getElementsByClassName('card');
 
-      const div = document.createElement('div');
-      const views = item.others.views.slice(0,3) ;
-      const viewsNumbers = parseFloat(views) * 1000 ;
-      
-      allViewsArray.push(viewsNumbers);
+  const cardsArray = Array.from(cards);
 
-      if(allViewsArray.length === 12){
+  console.log(cardsArray)
 
-        allViewsArray.sort((a,b) => b-a );
-        
-        for (const item of allViewsArray) {
-          console.log(item)
-        }
-       
-      }
-    })
-}
+  cardsArray.sort((a, b) => {
+    const viewA = b.childNodes[1].childNodes[5].childNodes[5].innerText.slice(0,3)*1000 ;
+    const viewB = a.childNodes[1].childNodes[5].childNodes[5].innerText.slice(0,3)*1000 ;
+
+    return viewA - viewB ;
+  })
+
+    cardContainer.innerHTML = "" ;
+    
+    cardsArray.forEach(card => {
+      cardContainer.appendChild(card);
+    });
+};
 
 
 displayCard('1000');
