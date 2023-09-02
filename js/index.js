@@ -11,7 +11,7 @@ const showAllCategory = async () => {
     fullData.forEach((item) => {
         const div = document.createElement('div');
         div.innerHTML = `
-        <button onclick="displayCard('${item.category_id}')" class="px-4 lg:px-5 py-2 text-[#191919B3] font-medium font-inter text-base rounded bg-[#19191926] text-[#252525]">${item.category}</button>
+        <button onclick="displayCard('${item.category_id}')" class="px-4 md:px-5 lg:px-5 py-2 text-[#191919B3] font-medium font-inter text-base rounded bg-[#19191926] text-[#252525]">${item.category}</button>
         `;
         
         categoryContainer.appendChild(div);
