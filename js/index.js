@@ -60,7 +60,7 @@ const displayCard = async (categoryId) => {
     <figure class=""><img class="rounded-lg w-full h-[250px]" src=${item.thumbnail} alt="Shoes" />
       </figure>
 
-      <div id="hours-minute" class="relative lg:ml-[300px] md:ml-64 ml-56 -top-10 px-2 py-1 w-max rounded bg-[#171717] text-[#FFF] text-xs font-normal font-inter"> ${totalHours? totalHours : ''} ${totalHours? 'hrs' : ''} ${minutes? minutes : ''} ${minutes? 'min ago' : ''}</div>
+      <div id="hours-minute" class="relative lg:ml-[300px] ml-64 md:ml-64 lg:ml-56 -top-10 px-2 py-1 w-max rounded bg-[#171717] text-[#FFF] text-xs font-normal font-inter"> ${totalHours? totalHours : ''} ${totalHours? 'hrs' : ''} ${minutes? minutes : ''} ${minutes? 'min ago' : ''}</div>
     <div class="">
       <div class="flex gap-3 mt-5">
             <img class="w-[48px] h-[45px] rounded-full" src='${item.authors[0].profile_picture}' alt="">
@@ -97,34 +97,29 @@ const displayCard = async (categoryId) => {
         else if(data?.data?.length > 0  || data?.status == true){
           const noDataContainer = document.getElementById('no-data-container');
           noDataContainer.textContent = "" ;
-        }   
+        }   ;
 };
 
-const sortByView = async (sortId) => {
-  // const viewsArray = [] ;
-  // const views = item.others.views.slice(0,3) ;
-  // const viewsNumbers = parseFloat(views) * 1000 ;
-  const response = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`)
+const sortByView = async () => {
 
-    const data = await response.json();
     const allViewsArray = [] ;
     data.data.forEach((item) => {
+
+      const div = document.createElement('div');
       const views = item.others.views.slice(0,3) ;
       const viewsNumbers = parseFloat(views) * 1000 ;
       
       allViewsArray.push(viewsNumbers);
 
       if(allViewsArray.length === 12){
-        const div = document.createElement('div');
-        
-        allViewsArray.sort((a,b) => b-a );
-        allViewsArray.forEach(item => {
-          
-        })
-      }
 
-      // const viewsList = allViewsArray.join(',')  
-      
+        allViewsArray.sort((a,b) => b-a );
+        
+        for (const item of allViewsArray) {
+          console.log(item)
+        }
+       
+      }
     })
 }
 

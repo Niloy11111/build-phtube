@@ -17,19 +17,19 @@
     }
 </style>
 </head>
-<body id="body" class="mx-16 mt-14 bg-[#FFF] mb-32">
+<body id="body" class="mx-10 lg:mx-16 mt-14 bg-[#FFF] mb-12 lg:mb-32">
     <header>
-        <nav class="flex justify-between border-b border-[#11111121] pb-8">
+        <nav class="flex flex-col lg:flex-row justify-between  border-b border-[#11111121] pb-8">
             <div>
-                <img src="./image/Logo.png" alt="">
+                <img class="mx-auto" src="./image/Logo.png" alt="">
             </div>
 
-            <button onclick="sortByView()" class="px-5 py-3 rounded bg-[#19191933]">
+            <button onclick="sortByView()" class="w-max mx-auto lg:mx-0 my-6 lg:my-0 px-5 py-3 rounded bg-[#19191933]">
                 <p class="text-[#252525] text-lg font-medium font-inter">Sort by view</p>
             </button>
 
-            <button class="px-5 py-2 rounded bg-[#FF1F3D]">
-                <p class="font-inter font-medium text-[#FFF] text-lg">Blog</p>
+            <button class="w-max px-5 py-2 rounded bg-[#FF1F3D]">
+                <a href="blog.html" class="font-inter font-medium text-[#FFF] text-lg">Blog</a>
             </button>
         </nav>
     </header>
@@ -39,7 +39,7 @@
      
 
         
-        <div id="category-name" class="flex justify-center gap-6 mt-8 mb-10">
+        <div id="category-name" class=" flex justify-center gap-6 mt-8 mb-10">
             
         </div>
 

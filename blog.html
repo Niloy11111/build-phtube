@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .font-inter{
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<!-- bg-[#F9F6E2] -->
+<body class="py-24  bg-[#FFF]">
+    
+    <h1 class="text-5xl text-[#E527B2] font-bold font-inter text-center">All the Blog Questions Answers are here</h1>
+<main class="container mx-auto">
+    
+    <div class="space-y-12 mt-24">
+        <h3 class="text-2xl text-[#111] font-bold font-inter text-center"><span class="text-[#E55473]">Question-1</span>
+                 Dicusss the scope of var, let and const</h3>
+        <p class="text-[#111] font-inter font-semibold text-xl">
+            Var declarations are globally scoped or function/locally scoped. This means that any variable that is declared with var outside a function block is available for use in the whole window.var variables can be updated and re-declared within its scope . Scope essentially means where these variables are available for use. It is a function scoped when it is declared within a function. This means that this is available and can be accessed only within that function. So if I declare a var in global space  I would access the var without any doubt but what would be if I declare the same var in a function and want to access it from outside the function? I will get an error because the var is not in the global scope.
+        </p>
+
+        <p class="text-[#111] font-inter font-semibold text-xl">
+            Let is block-scoped. a variable declared with let can be updated within its scope. We can update the value of let variables but not re-declare with the same variable names which we could in the var variable. So a variable declared in a block with let is only available for use within that block. But if the same variable is defined in different scopes, there will be no error. Since they have different scopes so they are treated as different variables which is why it won't get an error.
+        </p>
+
+        <p class="text-[#111] font-inter font-semibold text-xl">
+            Const declarations are block scoop. Just like let declarations const declarations can only be accessed within the block they were declared. Const can not be updated or redeclared. This means that the value of a variable declared with const remains the same within its scope. But when it comes to objects declared with const where a const object cannot be updated but the properties of this objects can be updated. 
+        </p>
+
+        <h3 class="text-2xl text-[#111] font-bold font-inter text-center"><span class="text-[#E55473]">Question-2</span>
+            Tell us the use cases of null and undefined</h3>
+           
+               <h4 class="text-2xl text-[#E55473] font-bold font-inter text-center">Null</h4>
+               <p class="text-[#111] font-inter font-semibold text-xl"> 
+Null means an empty value or a blank value. Null is an assignment value. It can be assigned to a variable as a representation of no value. We use null when we want to represent the absence of a value in a way that is meaningful in our code . For example, if I have a variable (persons) that is supposed to hold an object, I can set it to null to indicate that it doesn't currently reference any object (persons = null ) .
+Here are some use cases of Null : <br><br>
+
+1-  We can use null to check if a value is intentionally missing or not available. <br><br>
+
+
+ 2-When working with databases or APIs, it's common to receive null as a response when a requested value is not found. <br><br>
+
+3- The key point when using null is to do so intentionally and with a clear understanding of its meaning within our code. Using it consistently and purposefully can make our code more readable and maintainable. <br><br>
+
+4- If some information is supposed to arrive but hasn't come yet. we can you null to say I don't have any information right now but I will get it later. <br><br>
+
+So null is like a way to inform I know something is missing and that's what I want. It helps us to manage information and handle situations particularly when we do not have data or when something doesn't go as planned in our programs  <br><br>
+            </p>
+            <h4 class="text-2xl text-[#E55473] font-bold font-inter text-center">Undefined</h4>
+            <p class="text-[#111] font-inter font-semibold text-xl">In JavaScript undefined represents a specific value, indicating that a variable, property, or expression doesn’t have a defined or initialized value. It's essentially JavaScript's way of saying, "I don't have any data for this. <br><br>
+
+                Here are some use cases of undefined : <br><br>
+                
+                1- When we declare a variable without assigning it a value, it is automatically initialized to undefined. This is useful when we want to declare a variable but don't yet have a value to assign.<br><br>
+                
+                2-In functions, parameters that are not provided with arguments by the caller become undefined. This allows functions to handle cases when expected inputs are missing. <br><br>
+                
+                3- When we try to access an object property that doesn't exist, JavaScript returns undefined. This helps in checking if a property exists on an object.<br><br>
+                
+                4-If you access an index in an array that is beyond its length or if the element at that index has not been set, you get undefined.<br><br>
+                
+                5- Functions that end without a return statement return undefined. This is useful to indicate that a function didn't produce a specific result.<br><br>
+                
+                The use cases of undefined helps us to handle cases where data might be missing or uninitialized in a program.
+                </p>
+                <h3 class="text-2xl text-[#111] font-bold font-inter text-center"><span class="text-[#E55473]">Question-3</span>
+                    What do you mean by REST API?</h3>
+                <p class="text-[#111] font-inter font-semibold text-xl">
+                    A REST API, or Representational State Transfer Application Programming Interface, is an architectural style for building web services that allows different systems to communicate with each other over the internet. <br><br>
+
+Principles of REST Architecture:<br><br>
+1- Uniform interface: Rest APIs have a uniform interface which means that the communication between clients and servers is done using standard protocols and formats. 
+
+Stateless: REST APIs are stateless, meaning that each request from a client to a server contains all the information needed to understand and process that request.<br><br>
+Client-Server:  The client-server architecture is a fundamental principle of REST. This allows for more flexibility as the client and server can evolve independently.<br><br>
+
+Cacheable: REST APIs support caching, which means that responses from a server can be stored by a client or intermediate servers and reused for subsequent requests.<br><br>
+
+How REST APIs Work: <br><br>
+REST APIs work by allowing clients to send requests to servers, and servers respond with the requested information or perform the requested actions. The communication between clients and servers is done using HTTP (Hypertext Transfer Protocol), which is the protocol used for transmitting data over the Internet. <br><br>
+
+Clients can make different types of requests to a REST API, depending on the action they want to perform. The most common HTTP methods used in REST APIs are get, post, put , delete <br><br>
+
+A client can send a GET request to retrieve a list of users, or a POST request to create a new user. <br><br>
+
+The server processes these requests and returns a response to the client. REST APIs can also support authentication and authorization mechanisms to ensure that only authorized clients can access certain resources <br><br>
+
+REST API's benefits are simplicity, flexibility, and compatibility. Overall, REST APIs provide a standardized and flexible way for different systems to communicate and exchange data over the Internet. They have become the de facto standard for building web services and are widely used in various industries and applications.
+
+
+
+
+                </p>
+    </div>
+</main>
+</body>
+</html>
